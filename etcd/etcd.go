@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/astaxie/beego/logs"
-	"github.com/coreos/etcd/clientv3"
+	"go.etcd.io/etcd/clientv3"
 	"net"
 	"time"
 )
