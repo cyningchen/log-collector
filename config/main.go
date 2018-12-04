@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/astaxie/beego/config"
 	"fmt"
+	"github.com/astaxie/beego/config"
 	"logAgent/tailf"
 )
 
@@ -11,17 +11,17 @@ var (
 )
 
 type Config struct {
-	Loglevel string
-	Path string
+	Loglevel    string
+	Path        string
 	CollectConf []tailf.CollectConf
-	KafkaAddr string
+	KafkaAddr   string
+	EtcdAddr    string
+	EtcdKey     string
 }
-
-
 
 func LoadConf(filename string) (err error) {
 	conf, err := config.NewConfig("ini", filename)
-	if err != nil{
+	if err != nil {
 		fmt.Println("new config failed, ", err)
 		return
 	}
@@ -29,9 +29,11 @@ func LoadConf(filename string) (err error) {
 	Global.Loglevel = conf.String("log::log_level")
 	Global.Path = conf.String("log::path")
 	Global.KafkaAddr = conf.String("kafka::server_addr")
+	Global.EtcdAddr = conf.String("etcd::addr")
+	Global.EtcdKey = conf.String("etcd::configkey")
 
 	err = loadCollectConf(conf)
-	if err != nil{
+	if err != nil {
 		fmt.Println("load collectconf failed, ", err)
 		return
 	}
