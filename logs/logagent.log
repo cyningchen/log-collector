@@ -1,184 +1,28 @@
-2018/11/28 12:44:21.605 [I]  init logger sucess
-2018/11/28 12:44:21.605 [I]  init all sucess
-2018/11/28 14:45:42.237 [I]  init logger sucess
-2018/11/28 14:45:42.237 [I]  init all sucess
-2018/11/28 15:02:49.793 [I]  init logger sucess
-2018/11/28 15:02:49.793 [I]  init all sucess
-2018/11/28 15:04:42.242 [I]  init logger sucess
-2018/11/28 15:04:42.243 [I]  init all sucess
-2018/11/28 15:26:50.757 [I]  init logger sucess
-2018/11/28 15:26:50.773 [D]  init kafka sucess
-2018/11/28 15:26:50.774 [I]  init all sucess
-2018/11/28 15:45:49.250 [I]  init logger sucess
-2018/11/28 15:45:49.254 [D]  init kafka sucess
-2018/11/28 15:45:49.254 [I]  init all sucess
-2018/11/28 15:48:45.481 [I]  init logger sucess
-2018/11/28 15:48:45.484 [D]  init kafka sucess
-2018/11/28 15:48:45.484 [I]  init all sucess
-2018/11/28 15:48:51.019 [D]  pid: 0, offset 8, topic: nginx_log
+2018/12/05 14:58:07.433 [I]  init logger sucess
+2018/12/05 14:58:07.711 [I]  log config is [{/usr/log/nginx/access.log nginx_log} {/usr/log/nginx/error.log nginx_log_error}]
+2018/12/05 14:58:07.752 [D]  init kafka sucess
+2018/12/05 14:58:07.752 [I]  init all sucess
+2018/12/05 14:58:57.056 [D]  pid: 1, offset 30, topic: nginx_log
 
-2018/11/28 15:48:51.249 [D]  pid: 0, offset 9, topic: nginx_log
+2018/12/05 14:59:09.115 [D]  pid: 2, offset 27, topic: nginx_log
 
-2018/11/28 15:48:51.251 [D]  pid: 0, offset 10, topic: nginx_log
+2018/12/05 14:59:30.095 [D]  pid: 1, offset 3737, topic: nginx_log_error
 
-2018/11/28 15:48:51.253 [D]  pid: 0, offset 11, topic: nginx_log
+2018/12/05 15:00:51.299 [D]  pid: 0, offset 3694, topic: nginx_log_error
 
-2018/11/28 15:48:51.257 [D]  pid: 0, offset 12, topic: nginx_log
+2018/12/05 15:00:51.316 [D]  pid: 2, offset 3564, topic: nginx_log_error
 
-2018/11/28 15:48:51.258 [D]  pid: 0, offset 13, topic: nginx_log
+2018/12/05 15:00:51.317 [D]  pid: 2, offset 3565, topic: nginx_log_error
 
-2018/11/28 15:48:51.258 [D]  pid: 0, offset 14, topic: nginx_log
+2018/12/05 15:03:24.057 [I]  init logger sucess
+2018/12/05 15:03:24.060 [I]  log config is [{/usr/log/nginx/access.log nginx_log} {/usr/log/nginx/error.log nginx_log_error}]
+2018/12/05 15:03:24.062 [D]  init kafka sucess
+2018/12/05 15:03:24.062 [I]  init all sucess
+2018/12/05 15:12:12.077 [I]  init logger sucess
+2018/12/05 15:12:12.194 [I]  log config is [{/usr/log/nginx/access.log nginx_log} {/usr/log/nginx/error.log nginx_log_error}]
+2018/12/05 15:12:12.281 [D]  init kafka sucess
+2018/12/05 15:12:12.281 [I]  init all sucess
+2018/12/05 15:12:22.253 [D]  pid: 0, offset 107, topic: nginx_log
 
-2018/11/28 15:48:51.259 [D]  pid: 0, offset 15, topic: nginx_log
-
-2018/11/28 15:48:51.260 [D]  pid: 0, offset 16, topic: nginx_log
-
-2018/11/28 15:48:51.261 [D]  pid: 0, offset 17, topic: nginx_log
-
-2018/11/28 16:05:28.358 [I]  init logger sucess
-2018/11/28 16:05:28.360 [D]  init kafka sucess
-2018/11/28 16:05:28.360 [I]  init all sucess
-2018/11/28 16:05:46.682 [D]  pid: 0, offset 18, topic: nginx_log
-
-2018/11/28 16:05:46.903 [D]  pid: 0, offset 19, topic: nginx_log
-
-2018/11/28 16:05:46.904 [D]  pid: 0, offset 20, topic: nginx_log
-
-2018/11/28 16:05:46.907 [D]  pid: 0, offset 21, topic: nginx_log
-
-2018/11/28 16:05:46.907 [D]  pid: 0, offset 22, topic: nginx_log
-
-2018/11/28 16:05:46.908 [D]  pid: 0, offset 23, topic: nginx_log
-
-2018/11/28 16:05:46.909 [D]  pid: 0, offset 24, topic: nginx_log
-
-2018/11/28 16:05:46.910 [D]  pid: 0, offset 25, topic: nginx_log
-
-2018/11/28 16:05:46.913 [D]  pid: 0, offset 26, topic: nginx_log
-
-2018/11/28 16:05:46.914 [D]  pid: 0, offset 27, topic: nginx_log
-
-2018/11/28 16:06:05.170 [D]  pid: 0, offset 28, topic: nginx_log
-
-2018/11/28 16:09:44.348 [D]  pid: 0, offset 29, topic: nginx_log
-
-2018/11/28 16:09:44.617 [D]  pid: 0, offset 30, topic: nginx_log
-
-2018/11/28 16:12:13.720 [D]  pid: 0, offset 31, topic: nginx_log
-
-2018/11/28 16:15:02.623 [D]  pid: 0, offset 32, topic: nginx_log
-
-2018/11/28 16:43:44.069 [D]  pid: 0, offset 33, topic: nginx_log
-
-2018/11/28 16:44:31.999 [D]  pid: 0, offset 34, topic: nginx_log
-
-2018/11/28 17:11:02.656 [D]  pid: 0, offset 35, topic: nginx_log
-
-2018/11/28 17:11:02.658 [D]  pid: 0, offset 36, topic: nginx_log
-
-2018/11/28 17:11:02.660 [D]  pid: 0, offset 37, topic: nginx_log
-
-2018/11/28 17:11:02.664 [D]  pid: 0, offset 38, topic: nginx_log
-
-2018/11/28 17:11:02.666 [D]  pid: 0, offset 39, topic: nginx_log
-
-2018/11/28 17:11:02.668 [D]  pid: 0, offset 40, topic: nginx_log
-
-2018/11/28 17:11:02.670 [D]  pid: 0, offset 41, topic: nginx_log
-
-2018/11/28 17:11:02.673 [D]  pid: 0, offset 42, topic: nginx_log
-
-2018/11/28 17:11:02.675 [D]  pid: 0, offset 43, topic: nginx_log
-
-2018/11/28 17:11:02.676 [D]  pid: 0, offset 44, topic: nginx_log
-
-2018/11/28 17:11:02.677 [D]  pid: 0, offset 45, topic: nginx_log
-
-2018/11/28 17:11:02.687 [D]  pid: 0, offset 46, topic: nginx_log
-
-2018/11/28 17:11:02.688 [D]  pid: 0, offset 47, topic: nginx_log
-
-2018/11/28 17:11:02.689 [D]  pid: 0, offset 48, topic: nginx_log
-
-2018/11/28 17:11:15.483 [D]  pid: 0, offset 49, topic: nginx_log
-
-2018/11/28 17:11:15.485 [D]  pid: 0, offset 50, topic: nginx_log
-
-2018/11/28 17:11:15.735 [D]  pid: 0, offset 51, topic: nginx_log
-
-2018/11/28 17:11:15.737 [D]  pid: 0, offset 52, topic: nginx_log
-
-2018/11/28 17:11:15.739 [D]  pid: 0, offset 53, topic: nginx_log
-
-2018/11/28 17:11:15.740 [D]  pid: 0, offset 54, topic: nginx_log
-
-2018/11/28 17:11:16.232 [D]  pid: 0, offset 55, topic: nginx_log
-
-2018/11/28 17:11:16.735 [D]  pid: 0, offset 56, topic: nginx_log
-
-2018/11/28 17:11:16.737 [D]  pid: 0, offset 57, topic: nginx_log
-
-2018/11/28 17:11:16.739 [D]  pid: 0, offset 58, topic: nginx_log
-
-2018/11/28 17:11:16.740 [D]  pid: 0, offset 59, topic: nginx_log
-
-2018/11/28 17:11:16.741 [D]  pid: 0, offset 60, topic: nginx_log
-
-2018/11/28 17:11:16.743 [D]  pid: 0, offset 61, topic: nginx_log
-
-2018/11/28 17:11:16.744 [D]  pid: 0, offset 62, topic: nginx_log
-
-2018/11/28 17:11:16.745 [D]  pid: 0, offset 63, topic: nginx_log
-
-2018/11/28 17:11:16.747 [D]  pid: 0, offset 64, topic: nginx_log
-
-2018/11/28 17:11:16.984 [D]  pid: 0, offset 65, topic: nginx_log
-
-2018/11/28 17:11:16.985 [D]  pid: 0, offset 66, topic: nginx_log
-
-2018/11/28 17:11:16.985 [D]  pid: 0, offset 67, topic: nginx_log
-
-2018/11/28 17:11:16.986 [D]  pid: 0, offset 68, topic: nginx_log
-
-2018/11/28 17:11:16.988 [D]  pid: 0, offset 69, topic: nginx_log
-
-2018/11/28 17:11:16.988 [D]  pid: 0, offset 70, topic: nginx_log
-
-2018/11/28 17:11:17.234 [D]  pid: 0, offset 71, topic: nginx_log
-
-2018/11/28 17:11:17.236 [D]  pid: 0, offset 72, topic: nginx_log
-
-2018/11/28 17:11:17.237 [D]  pid: 0, offset 73, topic: nginx_log
-
-2018/11/28 17:11:17.238 [D]  pid: 0, offset 74, topic: nginx_log
-
-2018/11/28 17:11:17.239 [D]  pid: 0, offset 75, topic: nginx_log
-
-2018/11/28 17:11:17.242 [D]  pid: 0, offset 76, topic: nginx_log
-
-2018/11/28 17:11:17.243 [D]  pid: 0, offset 77, topic: nginx_log
-
-2018/11/28 17:11:17.244 [D]  pid: 0, offset 78, topic: nginx_log
-
-2018/11/28 17:11:17.245 [D]  pid: 0, offset 79, topic: nginx_log
-
-2018/11/28 17:11:17.246 [D]  pid: 0, offset 80, topic: nginx_log
-
-2018/11/28 17:11:17.248 [D]  pid: 0, offset 81, topic: nginx_log
-
-2018/11/28 17:48:43.299 [D]  pid: 0, offset 82, topic: nginx_log
-
-2018/11/28 18:08:24.187 [D]  pid: 0, offset 83, topic: nginx_log
-
-2018/11/28 19:48:07.850 [D]  pid: 0, offset 84, topic: nginx_log
-
-2018/11/28 19:48:37.189 [D]  pid: 0, offset 85, topic: nginx_log
-
-2018/11/28 20:25:55.093 [D]  pid: 0, offset 86, topic: nginx_log
-
-2018/11/28 20:25:55.093 [D]  pid: 0, offset 87, topic: nginx_log
-
-2018/11/28 20:25:55.094 [D]  pid: 0, offset 88, topic: nginx_log
-
-2018/11/28 20:47:20.282 [D]  pid: 0, offset 89, topic: nginx_log
+2018/12/05 15:12:43.519 [D]  pid: 0, offset 3695, topic: nginx_log_error
 

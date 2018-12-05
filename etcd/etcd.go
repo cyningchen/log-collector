@@ -7,6 +7,8 @@ import (
 	"go.etcd.io/etcd/clientv3"
 	"net"
 	"time"
+	"logAgent/tailf"
+	"encoding/json"
 )
 
 type EtcdClient struct {
@@ -25,13 +27,15 @@ func init() {
 	}
 	for _, addr := range addrs {
 		if ipnet, ok := addr.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-			localIp = append(localIp, ipnet.IP.String())
+			if ipnet.IP.To4() != nil{
+				localIp = append(localIp, ipnet.IP.String())
+			}
 		}
 	}
 	fmt.Println("localIp: ", localIp)
 }
 
-func InitEtcd(addr string, key string) (err error) {
+func InitEtcd(addr string, key string) (collectconf []tailf.CollectConf, err error) {
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:   []string{addr},
 		DialTimeout: 5 * time.Second,
@@ -42,6 +46,7 @@ func InitEtcd(addr string, key string) (err error) {
 	etcdClient = &EtcdClient{
 		client: cli,
 	}
+
 	for _, ip := range localIp {
 		etcdKey := fmt.Sprintf("%s%s", key, ip)
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
@@ -50,9 +55,17 @@ func InitEtcd(addr string, key string) (err error) {
 			continue
 		}
 		cancel()
-		for k, v := range resp.Kvs {
-			fmt.Println(k, v)
+		for _, v := range resp.Kvs {
+			if string(v.Key) == etcdKey{
+				err := json.Unmarshal(v.Value, &collectconf)
+				if err != nil{
+					logs.Error("unmarshal failed, ", err)
+					continue
+				}
+				logs.Info("log config is %v", collectconf)
+			}
 		}
 	}
-	return err
+	return
 }
+

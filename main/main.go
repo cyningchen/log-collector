@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"github.com/astaxie/beego/logs"
 	"logAgent/config"
-	"logAgent/etcd"
 	"logAgent/kafka"
 	log "logAgent/logs"
 	"logAgent/tailf"
+	"logAgent/etcd"
 )
 
 func main() {
@@ -18,17 +18,19 @@ func main() {
 		return
 	}
 
-	err = etcd.InitEtcd(config.Global.EtcdAddr, config.Global.EtcdKey)
+	log.InitLogger()
+	logs.Info("init logger sucess")
+	fmt.Println(config.Global)
+
+	collectConf, err := etcd.InitEtcd(config.Global.EtcdAddr, config.Global.EtcdKey)
+        config.Global.CollectConf = collectConf
+	
 	if err != nil {
 		logs.Error("init etcd failed, ", err)
 		return
 	}
 
-	log.InitLogger()
-	logs.Info("init logger sucess")
-	fmt.Println(config.Global)
-
-	err = tailf.InitTail(config.Global.CollectConf)
+	err = tailf.InitTail(collectConf)
 	if err != nil {
 		logs.Error("init tail failed, ", err)
 		return
@@ -44,3 +46,4 @@ func main() {
 		logs.Error("server run error, ", err)
 	}
 }
+

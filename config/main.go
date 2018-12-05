@@ -32,18 +32,19 @@ func LoadConf(filename string) (err error) {
 	Global.EtcdAddr = conf.String("etcd::addr")
 	Global.EtcdKey = conf.String("etcd::configkey")
 
-	err = loadCollectConf(conf)
-	if err != nil {
-		fmt.Println("load collectconf failed, ", err)
-		return
-	}
+	//err = loadCollectConf(conf)
+	//if err != nil {
+	//	fmt.Println("load collectconf failed, ", err)
+	//	return
+	//}
 	return
 }
 
-func loadCollectConf(conf config.Configer) (err error) {
-	var cc tailf.CollectConf
-	cc.LogPath = conf.String("collect::log_path")
-	cc.Topic = conf.String("collect::topic")
-	Global.CollectConf = append(Global.CollectConf, cc)
-	return
-}
+//func loadCollectConf(conf config.Configer) (err error) {
+//	var cc tailf.CollectConf
+//	cc.LogPath = conf.String("collect::log_path")
+//	cc.Topic = conf.String("collect::topic")
+//	Global.CollectConf = append(Global.CollectConf, cc)
+//	return
+//}
+
