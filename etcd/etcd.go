@@ -2,17 +2,18 @@ package etcd
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego/logs"
 	"go.etcd.io/etcd/clientv3"
+	"logAgent/tailf"
 	"net"
 	"time"
-	"logAgent/tailf"
-	"encoding/json"
 )
 
 type EtcdClient struct {
 	client *clientv3.Client
+	Keys   []string
 }
 
 var (
@@ -27,7 +28,7 @@ func init() {
 	}
 	for _, addr := range addrs {
 		if ipnet, ok := addr.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-			if ipnet.IP.To4() != nil{
+			if ipnet.IP.To4() != nil {
 				localIp = append(localIp, ipnet.IP.String())
 			}
 		}
@@ -49,6 +50,7 @@ func InitEtcd(addr string, key string) (collectconf []tailf.CollectConf, err err
 
 	for _, ip := range localIp {
 		etcdKey := fmt.Sprintf("%s%s", key, ip)
+		etcdClient.Keys = append(etcdClient.Keys, etcdKey)
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 		resp, err := cli.Get(ctx, etcdKey)
 		if err != nil {
@@ -56,9 +58,9 @@ func InitEtcd(addr string, key string) (collectconf []tailf.CollectConf, err err
 		}
 		cancel()
 		for _, v := range resp.Kvs {
-			if string(v.Key) == etcdKey{
+			if string(v.Key) == etcdKey {
 				err := json.Unmarshal(v.Value, &collectconf)
-				if err != nil{
+				if err != nil {
 					logs.Error("unmarshal failed, ", err)
 					continue
 				}
@@ -66,6 +68,30 @@ func InitEtcd(addr string, key string) (collectconf []tailf.CollectConf, err err
 			}
 		}
 	}
+	initEtcdWatch(addr)
 	return
 }
 
+func initEtcdWatch(addr string) {
+	for _, key := range etcdClient.Keys {
+		go WatchKey(addr, key)
+	}
+}
+
+func WatchKey(addr, key string) {
+	cli, err := clientv3.New(clientv3.Config{
+		Endpoints:   []string{addr},
+		DialTimeout: 5 * time.Second,
+	})
+	if err != nil {
+		logs.Error("new etcd failed, ", err)
+	}
+	for {
+		rch := cli.Watch(context.Background(), key)
+		for wresp := range rch {
+			for _, ev := range wresp.Events {
+				fmt.Printf("%s %q: %q\n", ev.Type, ev.Kv.Key, ev.Kv.Value)
+			}
+		}
+	}
+}
