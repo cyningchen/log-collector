@@ -88,10 +88,31 @@ func WatchKey(addr, key string) {
 	}
 	for {
 		rch := cli.Watch(context.Background(), key)
+		var collectConf []tailf.CollectConf
+		var getConfSuccess = true
 		for wresp := range rch {
 			for _, ev := range wresp.Events {
-				fmt.Printf("%s %q: %q\n", ev.Type, ev.Kv.Key, ev.Kv.Value)
+				if ev.Type == clientv3.EventTypePut{
+					if ev.Type == clientv3.EventTypePut && string(ev.Kv.Key) == key{
+						err := json.Unmarshal(ev.Kv.Value, &collectConf)
+						if err != nil{
+							logs.Error("key[%s], unmasharl failed, [%s]", ev.Kv.Key,err)
+							getConfSuccess = false
+							continue
+						}
+					}
+				}
+				if ev.Type == clientv3.EventTypeDelete{
+					logs.Warn("key[%s] config deleted", key)
+					continue
+				}
+				logs.Debug("get config from etcd, %s %q: %q\n", ev.Type, ev.Kv.Key, ev.Kv.Value)
+			}
+			if getConfSuccess{
+				logs.Debug("get config from etcd succ, %v", collectConf)
+				tailf.UpdateConf(collectConf)
 			}
 		}
 	}
 }
+

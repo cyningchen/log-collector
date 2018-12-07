@@ -26,3 +26,38 @@
 
 2018/12/05 15:12:43.519 [D]  pid: 0, offset 3695, topic: nginx_log_error
 
+2018/12/07 17:50:52.075 [I]  init logger sucess
+2018/12/07 17:50:52.078 [W]  no any config here
+2018/12/07 17:50:52.082 [D]  init kafka sucess
+2018/12/07 17:50:52.082 [I]  init all sucess
+2018/12/07 17:51:01.516 [D]  get config from etcd, PUT "/mmtrix/backend/logagent/config/172.19.155.53": "[{\"logpath\":\"/usr/log/nginx/access.log\",\"topic\":\"nginx_log\"},{\"logpath\":\"/var/log/messages\",\"topic\":\"syslog\"},{\"logpath\":\"/var/log/messages\",\"topic\":\"nginx_log_error\"}]"
+
+2018/12/07 17:51:01.516 [D]  get config from etcd succ, [{/usr/log/nginx/access.log nginx_log} {/var/log/messages syslog} {/var/log/messages nginx_log_error}]
+2018/12/07 17:51:01.801 [D]  pid: 2, offset 4143, topic: nginx_log_error
+
+2018/12/07 17:51:01.802 [D]  pid: 1, offset 4285, topic: nginx_log_error
+
+2018/12/07 17:51:01.803 [D]  pid: 2, offset 222, topic: syslog
+
+2018/12/07 17:51:01.804 [D]  pid: 1, offset 216, topic: syslog
+
+2018/12/07 17:51:03.018 [D]  pid: 1, offset 4286, topic: nginx_log_error
+
+2018/12/07 17:51:03.019 [D]  pid: 2, offset 4144, topic: nginx_log_error
+
+2018/12/07 17:51:03.031 [D]  pid: 0, offset 189, topic: syslog
+
+2018/12/07 17:51:03.032 [D]  pid: 0, offset 190, topic: syslog
+
+2018/12/07 17:51:05.270 [D]  pid: 1, offset 4287, topic: nginx_log_error
+
+2018/12/07 17:51:05.270 [D]  pid: 0, offset 4282, topic: nginx_log_error
+
+2018/12/07 17:51:05.271 [D]  pid: 1, offset 4288, topic: nginx_log_error
+
+2018/12/07 17:51:05.271 [D]  pid: 0, offset 191, topic: syslog
+
+2018/12/07 17:51:05.272 [D]  pid: 2, offset 223, topic: syslog
+
+2018/12/07 17:51:05.272 [D]  pid: 2, offset 224, topic: syslog
+
